@@ -13,12 +13,15 @@
   */
   function config($routeProvider) {
     $routeProvider.when('/', {
-      templateUrl: '/static/templates/task-feed/main.html',
-      controller: 'TaskFeedController',
-      controllerAs: 'taskfeed',
-      authenticated:true
+      templateUrl: '/visual/stories.html',
+      controller: 'StoryController',
+      controllerAs: 'ctrl'
     })
-    
+    .when('/story/:param',{
+      templateUrl: '/visual/images.html',
+      controller: 'ImageController',
+      controllerAs: 'ctrl'
+    })
     .when('/forum-home', {
         controller: 'CategoryController',
         controllerAs: 'ctrl',
