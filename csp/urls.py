@@ -1,7 +1,7 @@
 from django.conf.urls import patterns, include, url
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 # from crowdsourcing import views
-# from crowdsourcing.viewsets.project import *
+from crowdsourcing.viewsets.garner import *
 # from crowdsourcing.viewsets.user import UserViewSet, UserProfileViewSet, UserPreferencesViewSet
 # from crowdsourcing.viewsets.requester import RequesterRankingViewSet, RequesterViewSet, QualificationViewSet
 # from crowdsourcing.viewsets.rating import WorkerRequesterRatingViewset, RatingViewset
@@ -17,7 +17,9 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 from rest_framework.routers import SimpleRouter
 router = SimpleRouter(trailing_slash=True)
-# router.register(r'api/profile',UserProfileViewSet)
+router.register(r'api/story',StoryViewSet)
+router.register(r'api/article',ArticleViewSet)
+router.register(r'api/image',ImageViewSet)
 
 
 urlpatterns = patterns('',
