@@ -9,6 +9,6 @@ class ArticleSerializer(serializers.ModelSerializer):
     class Meta:
         model = Article
 
-class ImageSerializers(Serializers.ModelSerializer):
+class ImageSerializer(serializers.ModelSerializer):
     class Meta:
         model = Image

@@ -30,7 +30,7 @@ urlpatterns = patterns('',
   # url(r'^api/oauth2-ng/token', views.Oauth2TokenView.as_view()),
   # url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
   url(r'', include(router.urls)),
-  url('^.*$', views.home, name='home'),
+  # url('^.*$', views.home, name='home'),
 )
 
 urlpatterns += staticfiles_urlpatterns()
