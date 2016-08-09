@@ -19,7 +19,9 @@
     var self = this;
 		self.articles={};
 		Visual.getArticles($routeParams.param).then(function(Data){
-			self.articles = Data[0]
+			self.articles = Data[0];
+      console.log(Data);
+
       });
 
   }

@@ -48,7 +48,7 @@
 		function getArticles(story_id) {
 
 			var settings = {
-				url: '/api/story/'+story_id+'/articles',
+				url: '/api/story/'+story_id+'/articles/',
 				method: 'GET'
 			};
 			return HttpService.doRequest(settings);

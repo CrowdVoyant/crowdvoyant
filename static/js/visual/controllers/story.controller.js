@@ -18,7 +18,6 @@
 
     var self = this;
 		self.stories={};
-    console.log('Hello');
 		Visual.getAllStories().then(function(Data){
 			self.stories = Data[0];
       console.log(self.stories);
