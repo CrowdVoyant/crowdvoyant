@@ -20,7 +20,7 @@
 
     })
     .when('/story/:param',{
-      templateUrl: '/visual/images.html',
+      templateUrl: '/static/templates/visual/images.html',
       controller: 'ImageController',
       controllerAs: 'ctrl'
     })
