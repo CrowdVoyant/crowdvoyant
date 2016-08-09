@@ -9,14 +9,14 @@
     .module('crowdsource.services', [])
     .factory('HttpService', HttpService);
 
-  HttpService.$inject = ['$cookies', '$http', '$q', '$location', '$window', 'Authentication'];
+  HttpService.$inject = ['$cookies', '$http', '$q', '$location', '$window'];
 
   /**
   * @namespace HttpService
   * @returns {Factory}
   */
 
-  function HttpService($cookies, $http, $q, $location, $window, Authentication) {
+  function HttpService($cookies, $http, $q, $location, $window) {
     /**
     * @name HttpService
     * @desc The Factory to be returned
@@ -35,7 +35,7 @@
     * @memberOf crowdsource.tasksearch.services.HttpService
     */
     function doRequest(settings) {
-      
+
       var deferred = $q.defer();
       //Authentication.attachHeaderTokens(settings); // until we write OAUTH2 encryption middleware
 
@@ -51,12 +51,12 @@
 
               Authentication.setOauth2Token(data.data);
               $window.location.reload();
-          
+
             }, function error(data, status) {
 
               Authentication.unauthenticate();
               $window.location = '/login';
-          
+
             });
         } else {
           deferred.reject(arguments);

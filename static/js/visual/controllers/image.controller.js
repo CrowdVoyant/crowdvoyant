@@ -9,20 +9,18 @@
     .module('crowdsource.visual.controllers')
     .controller('ImageController', ImageController);
 
-  CommentController.$inject = ['$location', '$scope', 'Authentication', '$routeParams', '$mdToast', '$mdDialog'];
+  ImageController.$inject = ['$location', '$scope', 'Visual', '$routeParams'];
 
   /**
   * @namespace ImageController
   */
-	function ImageController($location, $scope, Authentication, Visual, $routeParams, $mdToast, $mdDialog) {
+	function ImageController($location, $scope, Visual, $routeParams) {
 
     var self = this;
 		self.articles={};
 		Visual.getArticles($routeParams.param).then(function(Data){
 			self.articles = Data[0]
       });
-
-		});
 
   }
 

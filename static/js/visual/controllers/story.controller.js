@@ -9,21 +9,22 @@
     .module('crowdsource.visual.controllers')
     .controller('StoryController', StoryController);
 
-  CommentController.$inject = ['$location', '$scope', 'Authentication', '$routeParams', '$mdToast', '$mdDialog'];
+  StoryController.$inject = ['$location', '$scope', 'Visual', '$routeParams'];
 
   /**
   * @namespace StoryController
   */
-	function StoryController($location, $scope, Authentication, Visual, $routeParams, $mdToast, $mdDialog) {
+	function StoryController($location, $scope, Visual, $routeParams) {
 
     var self = this;
 		self.stories={};
+    console.log('Hello');
 		Visual.getAllStories().then(function(Data){
-			self.stories = Data
-
+			self.stories = Data[0];
+      console.log(self.stories);
       });
 
-		});
+
 
   }
 

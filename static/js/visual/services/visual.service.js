@@ -1,6 +1,6 @@
 /**
-* Topic
-* @namespace crowdsource.forum.topic.services
+* Visual
+* @namespace crowdsource.visual.services
 */
 (function () {
 	'use strict';
@@ -9,10 +9,10 @@
 	.module('crowdsource.visual.services')
 	.factory('Visual', Visual);
 
-	Topic.$inject = ['$cookies', '$http', '$q', '$location', 'HttpService'];
+	Visual.$inject = ['$cookies', '$http', '$q', '$location', 'HttpService'];
 
 	/**
-	* @namespace Topic
+	* @namespace
 	* @returns {Factory}
 	*/
 
@@ -75,7 +75,7 @@
 
     }
 
-		
+
 	}
 
 })();

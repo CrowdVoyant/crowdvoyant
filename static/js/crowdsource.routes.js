@@ -13,9 +13,11 @@
   */
   function config($routeProvider) {
     $routeProvider.when('/', {
-      templateUrl: '/visual/stories.html',
+      templateUrl: '/static/templates/visual/stories.html',
       controller: 'StoryController',
-      controllerAs: 'ctrl'
+      controllerAs: 'ctrl',
+      authenticated:true
+
     })
     .when('/story/:param',{
       templateUrl: '/visual/images.html',

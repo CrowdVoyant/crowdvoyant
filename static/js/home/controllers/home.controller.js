@@ -9,19 +9,18 @@
     .module('crowdsource.home.controllers')
     .controller('HomeController', HomeController);
 
-  HomeController.$inject = ['$location', '$scope', 'Authentication', '$mdSidenav', '$mdUtil'];
+  HomeController.$inject = ['$location', '$scope', '$mdSidenav', '$mdUtil'];
 
   /**
   * @namespace HomeController
   */
-  function HomeController($location, $scope, Authentication, $mdSidenav, $mdUtil) {
+  function HomeController($location, $scope, $mdSidenav, $mdUtil) {
     var self = this;
     self.navigateTo = navigateTo;
     self.sideNavToggler = sideNavToggler;
     self.toggleLeft = sideNavToggler('left');
     self.toggleRight = sideNavToggler('right');
     self.getLocation = getLocation;
-    self.logout = logout;
     function sideNavToggler(navID) {
       var debounceFn =  $mdUtil.debounce(function(){
         $mdSidenav(navID)
@@ -38,8 +37,6 @@
       return $location.path();
     }
 
-    function logout() {
-      Authentication.logout();
-    }
+
   }
 })();

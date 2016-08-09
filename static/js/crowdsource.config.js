@@ -12,7 +12,7 @@
   * @desc Enable HTML5 routing
   */
   function config($httpProvider, $locationProvider, cfpLoadingBarProvider) {
-    $httpProvider.interceptors.push('AuthHttpResponseInterceptor');
+    // $httpProvider.interceptors.push('AuthHttpResponseInterceptor');
 
     $locationProvider.html5Mode(true);
     $locationProvider.hashPrefix('!');
