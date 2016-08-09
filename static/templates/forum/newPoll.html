@@ -1,0 +1,55 @@
+<md-dialog flex="30">
+  <form>
+  <md-toolbar>
+    <div class="md-toolbar-tools">
+      <h2>New Poll</h2>
+      <span flex></span>
+      <md-button class="md-icon-button" ng-click="addpoll.cancel()">
+        <md-icon>clear</md-icon>
+      </md-button>
+    </div>
+  </md-toolbar>
+  <md-dialog-content>
+			<md-input-container flex>
+          <label>Question</label>
+          <input ng-model="addpoll.poll.question">
+      </md-input-container>
+
+			<div ng-repeat="choice in addpoll.poll.choices">
+				<div layout="row">
+					<md-input-container flex>
+							<label>Choice</label>
+							<input ng-model ="choice.description">
+					</md-input-container>
+					<md-button class="md-icon-button md-accent" ng-click="addpoll.removechoice(choice)">
+						<md-icon class="material-icons">remove</md-icon>
+					</md-button>
+				</div>
+			</div>
+			<div layout="row">
+				<md-input-container flex>
+						<label>Choice</label>
+						<input ng-model ="addpoll.temp">
+				</md-input-container>
+				<md-button class="md-icon-button md-primary" ng-click="addpoll.addchoice()">
+					<md-icon class="material-icons">add</md-icon>
+				</md-button>
+			</div>
+			<md-input-container>
+			 <label>Choice Limit</label>
+			 <input ng-model="addpoll.poll.choice_limit" type="number">
+		 </md-input-container>
+
+  </md-dialog-content>
+  <div class="md-actions" layout="row">
+
+    <span flex></span>
+    <md-button ng-click="addpoll.cancel()">
+     Cancel
+    </md-button>
+    <md-button ng-click="addpoll.answer(addpoll.poll)" style="margin-right:20px;">
+      Create Poll
+    </md-button>
+  </div>
+  </form>
+</md-dialog>

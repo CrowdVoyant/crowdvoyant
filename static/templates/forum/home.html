@@ -1,0 +1,63 @@
+<div flex="">
+	<md-card>
+		<md-card-content>
+			<div layout = "row">
+				<span><a href="/">Daemo</a> <md-icon class="material-icons" layout-align="center center">navigate_next</md-icon>
+					<a href="/forum-home/">Forum</a> <md-icon class="material-icons" layout-align="center center">navigate_next</md-icon>
+				</span>
+			</div>
+			<div>
+				<h2>Forum</h2>
+			</div>
+		</md-card-content>
+	</md-card>
+	<div  ng-repeat="category in ctrl.categories">
+		<md-card>
+			<md-toolbar>
+				<div class="md-toolbar-tools">
+					<a ng-href="/forum-category/{{category.id}}/"> <h3><span>{{category.title}}</span></h3>
+					</a>
+					<span flex></span>
+					<!-- <md-button class="md-icon-button" aria-label="Favorite" ng-click = "topic.addSubCategory()">
+					<md-icon class="material-icons">add_to_photos</md-icon>
+				</md-button> -->
+			</div>
+		</md-toolbar>
+		<md-card-content>
+			<div>{{category.description}}</div>
+			<md-list>
+				<div ng-repeat = "subcategory in category.category_set">
+					<md-list-item class="md-2-line md-offset" >
+						<md-icon class="material-icons md-48" layout-align="center center">list</md-icon>
+						<div class="md-list-item-text">
+							<div layout="row">
+								<div layout="column" flex="80" layout-align="center start">
+									<a ng-href="/forum-category/{{subcategory.id}}/">
+										<h3>{{subcategory.title}}</h3>
+									</a>
+									<p>{{subcategory.description}}</p>
+								</div>
+								<!-- <div layout = "row" flex="20" layout-align = "center end">
+								<div  flex="50">
+								<md-icon md-font-set="material-icons">comment</md-icon> 67
+							</div>
+							<div  flex="50">
+							<md-icon md-font-set="material-icons">visibility</md-icon> 10
+						</div>
+					</div> -->
+				</div>
+			</div>
+		</md-list-item>
+		<md-divider></md-divider>
+	</div>
+</md-list>
+</md-card-content>
+</md-card>
+</div>
+<md-button class="md-fab md-primary" aria-label="Use Android" ng-click="ctrl.add()">
+	<md-icon md-font-set="material-icons">add_circle</md-icon>
+</md-button>
+
+
+
+</div>

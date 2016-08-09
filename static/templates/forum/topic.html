@@ -1,0 +1,131 @@
+<div flex="">
+	<md-card>
+		<md-card-content>
+			<div layout = "row">
+				<span><a href="/">Daemo</a> <md-icon class="material-icons" layout-align="center center">navigate_next</md-icon>
+					<a href="/forum-home/">Forum</a> <md-icon class="material-icons" layout-align="center center">navigate_next</md-icon>
+					<a ng-show="ctrl.topic.category.parent" href="/forum-category/{{ctrl.topic.category.parent.id}}/">{{ctrl.topic.category.parent.title}}</a> <md-icon ng-show="ctrl.topic.category.parent" class="material-icons" layout-align="center center">navigate_next</md-icon>
+					<a href="/forum-category/{{ctrl.topic.category.id}}/">{{ctrl.topic.category.title}}</a> <md-icon class="material-icons" layout-align="center center">navigate_next</md-icon> </span>
+				</div>
+				<div layout = "row" flex>
+					<h2>{{ctrl.topic.title}}</h2>
+					<span flex></span>
+					<md-button ng-click="ctrl.addPoll()">Create Poll</md-button>
+				</div>
+			</md-card-content>
+		</md-card>
+		<!-- <md-card>
+		<md-toolbar>
+		<div class="md-toolbar-tools">
+		<h3><span>Sub-Categories</span></h3>
+	</div>
+</md-toolbar>
+<md-card-content>
+
+<md-list>
+<md-list-item class="md-2-line md-offset" >
+<md-icon class="material-icons md-48" layout-align="center center">list</md-icon>
+<div class="md-list-item-text">
+<div layout="row">
+<div layout="column" flex="80" layout-align="center start">
+<h3>Sub Category 1</h3>
+<p>Description of sb1 bla bla bla bla bla bla bla bla bla bla bla bla</p>
+</div>
+<div layout = "row" flex="20" layout-align = "center end">
+<div  flex="50">
+<md-icon md-font-set="material-icons">comment</md-icon> 67
+</div>
+<div  flex="50">
+<md-icon md-font-set="material-icons">visibility</md-icon> 10
+</div>
+</div>
+</div>
+</div>
+</md-list-item>
+<md-divider></md-divider>
+<md-list-item class="md-2-line md-offset" >
+<md-icon class="material-icons md-48" layout-align="center center">list</md-icon>
+<div class="md-list-item-text">
+<div layout="row">
+<div layout="column" flex="80" layout-align="center start">
+<h3>Sub Category 2</h3>
+<p>Description of sb2 bla bla bla............... . . . . . </p>
+</div>
+<div layout = "row" flex="20" layout-align = "center end">
+<div  flex="50">
+<md-icon md-font-set="material-icons">comment</md-icon> 67
+</div>
+<div  flex="50">
+<md-icon md-font-set="material-icons">visibility</md-icon> 10
+</div>
+</div>
+</div>
+</div>
+</md-list-item>
+<md-divider></md-divider>
+<md-list-item class="md-2-line md-offset" >
+<md-icon class="material-icons md-48" layout-align="center center">list</md-icon>
+<div class="md-list-item-text">
+<div layout="row">
+<div layout="column" flex="80" layout-align="center start">
+<h3>Sub Category 3</h3>
+<p>Description of sb3 bla bla bla</p>
+</div>
+<div layout = "row" flex="20" layout-align = "center end">
+<div  flex="50">
+<md-icon md-font-set="material-icons">comment</md-icon> 67
+</div>
+<div  flex="50">
+<md-icon md-font-set="material-icons">visibility</md-icon> 10
+</div>
+</div>
+</div>
+</div>
+</md-list-item>
+</md-list>
+</md-card-content>
+</md-card> -->
+<div ng-repeat = "comment in ctrl.topic.comments">
+
+	<md-card>
+		<md-card-content>
+
+			<md-list>
+
+				<md-list-item class="md-2-line md-offset" >
+					<div layout = "column" layout-align="center center">
+						<md-icon class="material-icons md-48" >face</md-icon>
+						<h6>{{comment.username}}</h6>
+					</div>
+					<div class="md-list-item-text md-offset">
+								<p>{{comment.comment}}</p>
+					</div>
+					<div layout = "column" layout-align="center center">
+						<h3>{{comment.likes_count}}</h3>
+						<md-icon ng-hide = "comment.liked.id" ng-click= "ctrl.like(comment)" class="material-icons md-48" >thumb_up</md-icon>
+						<md-icon ng-show = "comment.liked.id" ng-click= "ctrl.unlike(comment)" class="material-icons md-48" >thumb_down</md-icon>
+					</div>
+
+				</md-list-item>
+			</md-list>
+		</md-card-content>
+	</md-card>
+</div>
+<md-card>
+	<md-card-content>
+		<form>
+			<md-input-container flex>
+				<label>Add Your comment here</label>
+				<textarea ng-model="ctrl.newcomment.comment"></textarea>
+			</md-input-container>
+			<md-button ng-click="ctrl.addComment()" style="margin-right:20px;">
+				Add
+			</md-button>
+		</form>
+	</md-card-content>
+</md-card>
+
+
+
+
+</div>

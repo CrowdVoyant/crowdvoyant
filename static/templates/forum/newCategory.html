@@ -1,0 +1,46 @@
+<md-dialog flex="30">
+  <form>
+  <md-toolbar>
+    <div class="md-toolbar-tools">
+      <h2>New Category</h2>
+      <span flex></span>
+      <md-button class="md-icon-button" ng-click="addcategory.cancel()">
+        <md-icon>clear</md-icon>
+      </md-button>
+    </div>
+  </md-toolbar>
+  <md-dialog-content >
+
+			<!-- <select name="parent" ng-model="addcategory.category.parent">
+				<option value="" selected>---</option>
+				<option ng-repeat = "cat in addcategory.categories" value={{cat.id}}>{{cat.title}}</option>
+			</select> -->
+			<md-input-container>
+				<md-select-label>Parent Category</md-select-label>
+        <md-select ng-model="addcategory.category.parent">
+					<md-option value="">- - - - - - -</md-option>
+          <md-option ng-repeat="cat in addcategory.categories" value="{{cat.id}}">{{cat.title}}</md-option>
+        </md-select>
+      </md-input-container>
+			<md-input-container flex>
+          <label>Title</label>
+          <input ng-model="addcategory.category.title">
+      </md-input-container>
+			<md-input-container flex>
+        <label>Description</label>
+        <textarea ng-model="addcategory.category.description" columns="1" md-maxlength="150"></textarea>
+      </md-input-container>
+
+  </md-dialog-content>
+  <div class="md-actions" layout="row">
+
+    <span flex></span>
+    <md-button ng-click="addcategory.cancel()">
+     Cancel
+    </md-button>
+    <md-button ng-click="addcategory.answer(addcategory.category)" style="margin-right:20px;">
+      Add
+    </md-button>
+  </div>
+  </form>
+</md-dialog>
