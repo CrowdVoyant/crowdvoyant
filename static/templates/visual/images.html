@@ -1,0 +1,65 @@
+<div flex="">
+  <md-card>
+
+  </md-card>
+
+
+  <md-card>
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h3><span>Story</span></h3>
+        <span flex></span>
+      </div>
+    </md-toolbar>
+    <md-card-content>
+      <div flex="">
+        <md-card>
+
+        </md-card>
+
+
+        <md-card>
+          <md-toolbar>
+            <div class="md-toolbar-tools">
+              <h3><span>Stories</span></h3>
+              <span flex></span>
+            </div>
+          </md-toolbar>
+          <md-card-content>
+
+            <md-list>
+              <md-list-item class="md-2-line md-offset" >
+                <h3>{{ctrl.story.ncl}}</h3>
+              </md-list-item>
+              <md-divider></md-divider>
+              <md-list-item class="md-2-line md-offset" >
+                <h3>{{ctrl.story.rss_link}}</h3>
+              </md-list-item>
+            </md-list>
+          </md-card-content>
+        </md-card>
+        <div ng-repeat = "article in ctrl.story.articles">
+          <div ng-repeat = "image in article.images">
+            <md-card>
+              <img ng-src="{{image.file}}" class="md-card-image" alt="Washed Out">
+              <md-card-actions layout="row" layout-align="end center">
+                <md-button class="md-icon-button" aria-label="Favorite">
+                  <md-icon md-svg-icon="img/icons/favorite.svg"></md-icon>
+                </md-button>
+                <md-button class="md-icon-button" aria-label="Settings">
+                  <md-icon md-svg-icon="img/icons/menu.svg"></md-icon>
+                </md-button>
+                <md-button class="md-icon-button" aria-label="Share">
+                  <md-icon md-svg-icon="img/icons/share-arrow.svg"></md-icon>
+                </md-button>
+              </md-card-actions>
+            </md-card>
+          </div>
+        </div>
+
+
+      </div>
+
+    </md-card-content>
+  </md-card>
+</div>
