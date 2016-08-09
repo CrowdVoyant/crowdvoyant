@@ -112,7 +112,10 @@ WSGI_APPLICATION = 'csp.wsgi.application'
 
 
 DATABASES = {
-    'default': dj_database_url.config()
+    'default': {
+    'ENGINE' : 'django_mongodb_engine',
+    'NAME' : 'crowdvoyant'
+    }
 }
 
 # Internationalization
