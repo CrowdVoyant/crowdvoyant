@@ -4,13 +4,13 @@ from django.db import models
 import datetime
 
 # gridfs_storage = GridFSStorage()
-class Subsrciption(models.Model):
+class Subscription(models.Model):
     name = models.CharField(max_length=15)
     link = models.CharField(max_length = 100)
     description = models.CharField(max_length = 200)
 
 class Story(models.Model):
-    subsrciption = models.ForeignKey(Subsrciption, null=True, on_delete=models.SET_NULL)
+    subscription = models.ForeignKey(Subscription, null=True, on_delete=models.SET_NULL)
     ncl = models.CharField(max_length = 20)
     rtc_link = models.CharField(max_length = 100)
     see_all_link = models.CharField(max_length = 100)

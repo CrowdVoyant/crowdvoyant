@@ -19,6 +19,7 @@ from csp import settings
 
 from rest_framework.routers import SimpleRouter
 router = SimpleRouter(trailing_slash=True)
+router.register(r'api/subscription',SubscriptionViewSet)
 router.register(r'api/story',StoryViewSet)
 router.register(r'api/article',ArticleViewSet)
 router.register(r'api/image',ImageViewSet)
