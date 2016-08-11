@@ -36,8 +36,8 @@ REST_FRAMEWORK = {
     # Only used if the `serializer_class` attribute is not set on a view.
     'DEFAULT_MODEL_SERIALIZER_CLASS':
         'rest_framework.serializers.HyperlinkedModelSerializer',
-    'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework.authentication.SessionAuthentication',),
+    # 'DEFAULT_AUTHENTICATION_CLASSES': (
+    #     'rest_framework.authentication.SessionAuthentication',),
     # Use Django's standard `django.contrib.auth` permissions,
     # or allow read-only access for unauthenticated users.
     'DEFAULT_PERMISSION_CLASSES': [
@@ -52,10 +52,10 @@ REST_FRAMEWORK = {
     #'PAGE_SIZE': 100
 }
 
-OAUTH2_PROVIDER = {
-    # this is the list of available scopes
-    'SCOPES': {'read': 'Read scope', 'write': 'Write scope'}
-}
+# OAUTH2_PROVIDER = {
+#     # this is the list of available scopes
+#     'SCOPES': {'read': 'Read scope', 'write': 'Write scope'}
+# }
 
 # OAUTH2_PROVIDER_APPLICATION_MODEL = 'oauth2_provider.Application'
 # MIGRATION_MODULES = {
@@ -70,12 +70,12 @@ INSTALLED_APPS = [
     'rest_framework',
     # 'oauth2_provider',
     'crowdsourcing',
-    'rest_framework_mongoengine',
+    # 'rest_framework_mongoengine',
 
 ]
 MIDDLEWARE_CLASSES = [
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    # 'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -94,7 +94,7 @@ TEMPLATES = [
             'context_processors': [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
+                # 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
         },
@@ -112,8 +112,10 @@ WSGI_APPLICATION = 'csp.wsgi.application'
 
 DATABASES = {
     'default': {
-    'ENGINE' : 'django_mongodb_engine',
+    # 'ENGINE' : 'django_mongodb_engine',
+    'ENGINE': 'django.db.backends.sqlite3',
     'NAME' : 'crowdvoyant'
+
     }
 }
 
