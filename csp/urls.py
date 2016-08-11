@@ -2,6 +2,8 @@ from django.conf.urls import patterns, include, url
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from crowdsourcing import views
 from crowdsourcing.viewsets.garner import *
+from django.conf.urls.static import static
+from csp import settings
 # from crowdsourcing.viewsets.user import UserViewSet, UserProfileViewSet, UserPreferencesViewSet
 # from crowdsourcing.viewsets.requester import RequesterRankingViewSet, RequesterViewSet, QualificationViewSet
 # from crowdsourcing.viewsets.rating import WorkerRequesterRatingViewset, RatingViewset
@@ -31,6 +33,6 @@ urlpatterns = patterns('',
   # url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
   url(r'', include(router.urls)),
   url('^.*$', views.home, name='home'),
-)
+) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 urlpatterns += staticfiles_urlpatterns()
