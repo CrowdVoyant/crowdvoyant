@@ -9,4 +9,4 @@ def get_article_text(link):
         article.parse()
     except:
         return None
-    return article.text.encode("utf8")
+    return article
