@@ -7,7 +7,7 @@
   <md-card>
     <md-toolbar>
       <div class="md-toolbar-tools">
-        <h3><span>Story</span></h3>
+        <h3><span></span></h3>
         <span flex></span>
       </div>
     </md-toolbar>
@@ -29,11 +29,11 @@
 
             <md-list>
               <md-list-item class="md-2-line md-offset" >
-                <h3>{{ctrl.story.ncl}}</h3>
+                <h3>{{ctrl.story.headline}}</h3>
               </md-list-item>
               <md-divider></md-divider>
               <md-list-item class="md-2-line md-offset" >
-                <h3>{{ctrl.story.rss_link}}</h3>
+                <h3>{{ctrl.story.last_update}}</h3>
               </md-list-item>
             </md-list>
           </md-card-content>
@@ -41,8 +41,8 @@
         <div ng-repeat = "article in ctrl.story.articles">
           <div ng-repeat = "image in article.images">
             <md-card>
-              <img ng-src="{{image.file}}" class="md-card-image" alt="Washed Out">
-              <md-card-actions layout="row" layout-align="end center">
+              <img ng-src="{{image.file}}" >
+              <!-- <md-card-actions layout="row" layout-align="end center">
                 <md-button class="md-icon-button" aria-label="Favorite">
                   <md-icon md-svg-icon="img/icons/favorite.svg"></md-icon>
                 </md-button>
@@ -52,7 +52,7 @@
                 <md-button class="md-icon-button" aria-label="Share">
                   <md-icon md-svg-icon="img/icons/share-arrow.svg"></md-icon>
                 </md-button>
-              </md-card-actions>
+              </md-card-actions> -->
             </md-card>
           </div>
         </div>

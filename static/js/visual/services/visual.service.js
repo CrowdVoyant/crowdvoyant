@@ -20,6 +20,7 @@
 		var Visual = {
       getAllStories: getAllStories,
       getStories: getStories,
+			getStory: getStory,
       getArticles: getArticles,
       getArticle: getArticle,
       getImages: getImages
@@ -40,6 +41,15 @@
 
 			var settings = {
 				url: '/api/'+subs_id+'/stories/',
+				method: 'GET'
+			};
+			return HttpService.doRequest(settings);
+		}
+
+		function getStory(story_id) {
+
+			var settings = {
+				url: '/api/story/'+story_id+'/',
 				method: 'GET'
 			};
 			return HttpService.doRequest(settings);
