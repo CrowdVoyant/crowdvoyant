@@ -24,8 +24,8 @@ router.register(r'api/story',StoryViewSet)
 router.register(r'api/article',ArticleViewSet)
 router.register(r'api/image',ImageViewSet)
 
-
-urlpatterns = patterns('',
+urlpatterns =  static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+urlpatterns += patterns('',
   # url(r'^api/v1/auth/registration-successful',views.registration_successful),
   # url(r'^api/auth/login/$', views.Login.as_view()),
   # url(r'^api/auth/logout/$', views.Logout.as_view()),
@@ -34,6 +34,6 @@ urlpatterns = patterns('',
   # url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
   url(r'', include(router.urls)),
   url('^.*$', views.home, name='home'),
-) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+)
 
 urlpatterns += staticfiles_urlpatterns()
