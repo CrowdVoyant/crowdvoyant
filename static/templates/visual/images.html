@@ -1,7 +1,7 @@
 <div layout = "row" flex="">
   <div flex="80">
     <md-card>
-      <md-card-content>
+      <!-- <md-card-content> -->
         <md-list>
           <md-list-item class="md-2-line md-offset" >
             <h3>{{ctrl.story.headline}}</h3>
@@ -10,11 +10,11 @@
           <md-divider></md-divider>
 
           <md-list-item class="md-2-line md-offset" >
-            <h3>{{ctrl.story.last_update}}</h3>
+            <h4>{{ctrl.story.last_update}}</h4>
           </md-list-item>
         </md-list>
 
-      </md-card-content>
+      <!-- </md-card-content> -->
     </md-card>
 
     <div layout = "row">
@@ -53,10 +53,15 @@
         <md-button class="md-raised md-primary">Next</md-button>
       </md-card-actions>
       <md-card-content>
-        <p>
+        <p ng-show="ctrl.two_needed">
           None of the image is selected !<br>
-          Please select two images, which you think are contrasting to each other, and represents Visual Bias.      </p>
-        </md-card-content>
+          Please select two images, which you think are contrasting to each other, and represents Visual Bias.
+          </p>
+        <p ng-show="ctrl.one_needed">
+          Only one image is selected !<br>
+          Please select second image, which you think is contrasting to this image, and represents Visual Bias.
+        </p>
+      </md-card-content>
       </md-card>
 
     </div>

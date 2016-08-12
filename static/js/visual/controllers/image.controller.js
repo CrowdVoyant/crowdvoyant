@@ -18,7 +18,8 @@
 
     var self = this;
     self.story=null;
-    self.images={};
+    self.two_needed=1;
+    self.one_needed=0;
     Visual.getStory($routeParams.param).then(function(Data){
       self.story = Data[0];
       // console.log(Data);
