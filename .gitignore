@@ -4,7 +4,7 @@ example/media/
 venv
 *.pyc
 local_settings.py
-media
+# media
 # Created by https://www.gitignore.io
 
 ### Python ###
