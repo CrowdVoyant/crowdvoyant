@@ -17,11 +17,11 @@
       <!-- </md-card-content> -->
     </md-card>
 
-    <div layout = "row">
+    <div layout = "row" layout-wrap>
       <div ng-repeat = "article in ctrl.story.articles">
         <div ng-repeat = "image in article.images">
 
-          <md-card flex>
+          <md-card style="width: 300px;" >
             <img ng-src="{{image.file}}" class="md-card-image" alt="Washed Out" width="100%" >
             <md-card-actions layout="row" layout-align="center center">
               <md-button class="md-icon-button">
@@ -40,7 +40,7 @@
 
   </div>
   <div flex="20">
-    <md-card>
+    <md-card class="stick">
       <md-toolbar>
         <div class="md-toolbar-tools">
           <h3><span>Stories</span></h3>
