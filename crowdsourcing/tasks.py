@@ -9,7 +9,7 @@ logger = get_task_logger(__name__)
 
 
 @periodic_task(
-    run_every=(crontab(minute='*/1')),
+    run_every=(crontab(minute='*/5')),
     name="scrap google news and articles",
     ignore_result=True
 )

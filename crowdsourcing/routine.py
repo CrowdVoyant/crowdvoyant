@@ -35,8 +35,8 @@ def run_routine():
                             print article
                             print story.headline
                             #save images of this article
-                            for image in article_data.images:
-                                image_model=Image(article = article, meta_data='Dummy')
-                                image_model.save()
-                                print image_model
-                                save_image_from_url(image_model, image)
+                            # for image in article_data.images:
+                            image_model=Image(article = article, meta_data='Dummy')
+                            image_model.save()
+                            print image_model
+                            save_image_from_url(image_model, article_data.top_image.encode("utf8"))
