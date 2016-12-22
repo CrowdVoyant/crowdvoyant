@@ -27,7 +27,7 @@
               <md-button class="md-icon-button">
                 <md-icon md-font-set="material-icons">info</md-icon>
               </md-button>
-              <md-button class="md-icon-button" ng-disabled="ctrl.selection_done" ng-click="ctrl.select(image);">
+              <md-button class="md-icon-button" ng-disabled="ctrl.selection_done || ctrl.selected_images[0].id==image.id || ctrl.selected_images[1].id==image.id" ng-click="ctrl.select(image);">
                 <md-icon  md-font-set="material-icons">done</md-icon>
               </md-button>
 
