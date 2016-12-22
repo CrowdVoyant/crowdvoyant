@@ -9,12 +9,16 @@
   .module('crowdsource.visual.controllers')
   .controller('ImageController', ImageController);
 
-  ImageController.$inject = ['$location', '$scope', 'Visual', '$routeParams'];
+  angular
+  .module('crowdsource.visual.controllers')
+  .controller('MemeController', MemeController);
+
+  ImageController.$inject = ['$location', '$scope', 'Visual', '$routeParams', '$mdDialog'];
 
   /**
   * @namespace ImageController
   */
-  function ImageController($location, $scope, Visual, $routeParams) {
+  function ImageController($location, $scope, Visual, $routeParams, $mdDialog) {
 
     var self = this;
     self.story=null;
@@ -54,10 +58,41 @@
       self.selection_done=false;
     }
 
-
+    self.showAdvance = function(ev, images) {
+       $mdDialog.show({
+         controller: MemeController,
+         controllerAs: 'meme',
+         templateUrl: '/static/templates/visual/dialog1.tmpl.html',
+         parent: angular.element(document.body),
+         targetEvent: ev,
+         clickOutsideToClose:true,
+         locals : {
+                    images : images
+                },
+         fullscreen: $scope.customFullscreen
+         // Only for -xs, -sm breakpoints.
+       })
+       .then(function() {
+         $scope.status = 'Meme Generated. Thanks for your contribution towards fighting media bias.';
+       }, function() {
+         $scope.status = 'You cancelled the dialog.';
+       });
+     };
 
 
   }
+
+  function MemeController($location, $scope, Visual, $mdDialog, images){
+		var self = this;
+    self.images = images;
+    console.log(self.images)
+		self.cancel = function() {
+			$mdDialog.cancel();
+		};
+		self.answer = function() {
+			$mdDialog.hide();
+		};
+	}
 
 
 })();
