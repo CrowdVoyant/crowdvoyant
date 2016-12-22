@@ -18,8 +18,9 @@
 
     var self = this;
     self.story=null;
-    self.two_needed=1;
-    self.one_needed=0;
+    self.selection_done=false;
+    self.selected_images=[];
+
     Visual.getStory($routeParams.param).then(function(Data){
       self.story = Data[0];
       Visual.getArticles(self.story.id).then(function(Data){
@@ -38,6 +39,14 @@
         self.story.articles[index].images = Data[0];
         console.log(Data[0]);
       });
+    }
+
+    self.select = function(image){
+      self.selected_images.push(image);
+      if (self.selected_images.length == 2){
+        self.selection_done=true;
+      }
+      console.log(self.selected_images);
     }
 
 

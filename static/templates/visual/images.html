@@ -27,8 +27,8 @@
               <md-button class="md-icon-button">
                 <md-icon md-font-set="material-icons">info</md-icon>
               </md-button>
-              <md-button class="md-icon-button">
-                <md-icon md-font-set="material-icons">done</md-icon>
+              <md-button class="md-icon-button" ng-disabled="ctrl.selection_done" ng-click="ctrl.select(image);">
+                <md-icon  md-font-set="material-icons">done</md-icon>
               </md-button>
 
             </md-card-actions>
