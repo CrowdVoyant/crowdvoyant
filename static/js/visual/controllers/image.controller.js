@@ -49,6 +49,11 @@
       console.log(self.selected_images);
     }
 
+    self.reset = function(){
+      self.selected_images=[];
+      self.selection_done=false;
+    }
+
 
 
 

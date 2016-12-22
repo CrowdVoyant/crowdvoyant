@@ -49,8 +49,8 @@
       </md-toolbar>
 
       <md-card-actions layout="row" layout-align="center center">
-        <md-button class="md-raised md-warn">Reset</md-button>
-        <md-button class="md-raised md-primary">Next</md-button>
+        <md-button class="md-raised md-warn" ng-disabled="ctrl.selected_images.length==0" ng-click="ctrl.reset();">Reset</md-button>
+        <md-button class="md-raised md-primary" ng-disabled="ctrl.selected_images.length!=2" >Next</md-button>
       </md-card-actions>
       <md-card-content>
         <p ng-show="ctrl.selected_images.length==0">
