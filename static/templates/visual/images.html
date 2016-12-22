@@ -53,14 +53,32 @@
         <md-button class="md-raised md-primary">Next</md-button>
       </md-card-actions>
       <md-card-content>
-        <p ng-show="ctrl.two_needed">
-          None of the image is selected !<br>
+        <p ng-show="ctrl.selected_images.length==0">
+          None of the image is not selected !<br>
           Please select two images, which you think are contrasting to each other, and represents Visual Bias.
-          </p>
-        <p ng-show="ctrl.one_needed">
-          Only one image is selected !<br>
-          Please select second image, which you think is contrasting to this image, and represents Visual Bias.
         </p>
+        <p ng-show="ctrl.selected_images.length==1">
+          Only one image is selected !<br>
+          Please select second image, which you think is contrasting to the one selected, and represents Visual Bias.
+        </p>
+        <div ng-repeat = "image in ctrl.selected_images">
+
+          <md-card style="width: 150px;" >
+            <img ng-src="{{image.file}}" img-respnsive class="md-card-image" alt="Washed Out" width="100%" >
+            <md-card-actions layout="row" layout-align="center center">
+              <md-button class="md-icon-button">
+                <md-icon md-font-set="material-icons">info</md-icon>
+              </md-button>
+              <md-button class="md-icon-button" ng-disabled="ctrl.selection_done" ng-click="ctrl.select(image);">
+                <md-icon  md-font-set="material-icons">done</md-icon>
+              </md-button>
+
+            </md-card-actions>
+          </md-card>
+        </div>
+
+
+
       </md-card-content>
       </md-card>
 
