@@ -4,7 +4,8 @@
   angular
     .module('crowdsource.visual', [
       'crowdsource.visual.controllers',
-      'crowdsource.visual.services'
+      'crowdsource.visual.services',
+      'crowdsource.visual.directives'
     ]);
 
   angular
@@ -12,4 +13,7 @@
 
   angular
     .module('crowdsource.visual.services', ['ngCookies']);
+
+  angular
+    .module('crowdsource.visual.directives', []);
 })();
