@@ -42,6 +42,8 @@
           }
 
           loadGrid();
+          loadImage_one();
+          loadImage_two();
         }
 
         function loadGrid(){
@@ -54,9 +56,32 @@
           gridBitmap = new createjs.Bitmap(event.target);
           scope.stage.addChild(gridBitmap);
           scope.stage.update();
-
-
         }
+
+        function loadImage_one(){
+          gridImg = new Image();
+          gridImg.src = scope.images[0].file;
+          gridImg.onload = drawImage_one;
+        }
+
+        function drawImage_one(event){
+          gridBitmap = new createjs.Bitmap(event.target);
+          scope.stage.addChild(gridBitmap);
+          scope.stage.update();
+        }
+
+        function loadImage_two(){
+          gridImg = new Image();
+          gridImg.src = scope.images[1].file;
+          gridImg.onload = drawImage_two;
+        }
+
+        function drawImage_two(event){
+          gridBitmap = new createjs.Bitmap(event.target);
+          scope.stage.addChild(gridBitmap);
+          scope.stage.update();
+        }
+
 
 
       }
