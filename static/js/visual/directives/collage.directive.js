@@ -15,9 +15,7 @@
       template: "<canvas></canvas>",
       replace : true,
       scope: {
-        clickHandler: "=",
-        model: "=",
-        selected: "="
+        images: '='
       },
       link: function(scope, element, attribute) {
         //will hold all canvas references
@@ -26,7 +24,6 @@
         element[0].width = stageBounds.width;
         element[0].height = stageBounds.height;
         var gridImg, gridBitmap = null; //perspective plane
-
         initStage();
 
         function initStage(){
