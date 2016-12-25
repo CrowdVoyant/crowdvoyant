@@ -12,19 +12,21 @@
   function collage() {
     return {
       restrict: 'AEC',
-      template: '<div><canvas></canvas><md-slider flex min="0" max="360" ng-model="angle" ng-change="onRotateChange();" aria-label="Slider"></md-slider><md-slider flex min="0" max="100" ng-model="scale" ng-change="onScaleChange();" aria-label="Slider2"></md-slider></div>',
+      template: '<div><canvas></canvas><div layout="row"><md-slider-container><span>Rotation</span><md-slider flex min="0" max="360" ng-model="angle" ng-change="onRotateChange();" aria-label="red" id="red-slider"></md-slider><md-input-container><input flex type="number" ng-model="angle" aria-label="red" aria-controls="red-slider"></md-input-container></md-slider-container><md-slider-container><span>Scale</span><md-slider flex min="0" max="100" ng-model="scale" ng-change="onScaleChange();" aria-label="red" id="red-slider"></md-slider><md-input-container><input flex type="number" ng-model="scale" aria-label="red" aria-controls="red-slider"></md-input-container></md-slider-container></div></div>',
       replace : true,
       scope: {
         images: '='
       },
       link: function(scope, element, attribute) {
         //will hold all canvas references
-        var stageBounds = { width: 800, height: 600, midX: null, midY: null }
+        var stageBounds = { width: 500, height: 600, midX: null, midY: null }
         var stageUpdate = false; //tells stage when to update
         element[0].children[0].width = stageBounds.width;
         element[0].children[0].height = stageBounds.height;
         var gridImg, gridBitmap = null; //perspective plane
         var gridBounds;
+        var topText;
+        var bottomText;
         var editItem; //reference to the bitmap being manipulated
         scope.angle = 0;
         scope.scale = 1;
@@ -51,6 +53,9 @@
           // loadGrid();
           loadImage(scope.images[0].file);
           loadImage(scope.images[1].file);
+          drawTopText();
+          drawBottomText();
+
         }
 
         function loadGrid(){
@@ -75,11 +80,43 @@
           im.onload = drawImage;
         }
 
+        function drawTopText(){
+          topText = new createjs.Text("Hello World\n\n top text", "50px Arial", "#ff7700");
+          topText.lineWidth = 400;
+          topText.lineHeight = 22;
+          topText.textBaseline = "top";
+          topText.textAlign = "center";
+          topText.y = 50;
+          topText.x = (stageBounds.width)/2 ;
+
+
+
+          scope.stage.addChild(topText);
+
+          scope.stage.update();
+        }
+
+        function drawBottomText(){
+          bottomText = new createjs.Text("Hello World\n\n bottom text", "50px Arial", "#ff7700");
+          bottomText.lineWidth = 400;
+          bottomText.lineHeight = 22;
+          bottomText.textBaseline = "top";
+          bottomText.textAlign = "center";
+          var b = bottomText.getBounds()
+          bottomText.y = stageBounds.height - b.height - 50;
+          bottomText.x = (stageBounds.width)/2 ;
+
+          scope.stage.addChild(bottomText);
+
+          scope.stage.update();
+        }
+
         function drawImage(event){
           var image = new createjs.Bitmap(event.target);
           scope.stage.addChild(image);
           centerElement(image);
           addBitmapListeners(image);
+
           scope.stage.update();
         }
 
@@ -119,10 +156,8 @@
             editItem.editable = false;
             removeGlow(editItem);
             editItem = this;
-
             scope.angle = editItem.rotation;
             scope.scale = editItem.scaleX * 10;
-
           }
 
           if (this.editable){ //item is editable if it has been selected
@@ -137,9 +172,7 @@
             addGlow(this);
             scope.angle = editItem.rotation;
             scope.scale = editItem.scaleX * 10;
-
           }
-
           scope.stage.update();
 
         }
@@ -152,20 +185,20 @@
           bitmap.shadow = null;
         }
 
-  
+
         scope.onRotateChange = function(){
           if (editItem != null && editItem.editable){
             editItem.rotation = scope.angle;
             scope.stage.update();
           }
-      }
-      scope.onScaleChange = function(){
-        if (editItem != null && editItem.editable){
+        }
+        scope.onScaleChange = function(){
+          if (editItem != null && editItem.editable){
             editItem.scaleX = editItem.scaleY = scope.scale/10;
             scope.stage.update();
-        }
+          }
 
-    }
+        }
 
 
       }
