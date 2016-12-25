@@ -12,7 +12,7 @@
   function collage() {
     return {
       restrict: 'AEC',
-      template: '<div><canvas></canvas><md-slider flex min="0" max="360" ng-model="angle" ng-change="onRotateChange();" aria-label="Slider"></md-slider></div>',
+      template: '<div><canvas></canvas><md-slider flex min="0" max="360" ng-model="angle" ng-change="onRotateChange();" aria-label="Slider"></md-slider><md-slider flex min="0" max="100" ng-model="scale" ng-change="onScaleChange();" aria-label="Slider2"></md-slider></div>',
       replace : true,
       scope: {
         images: '='
@@ -26,7 +26,8 @@
         var gridImg, gridBitmap = null; //perspective plane
         var gridBounds;
         var editItem; //reference to the bitmap being manipulated
-        scope.angle = 10;
+        scope.angle = 0;
+        scope.scale = 1;
         initStage();
 
         function initStage(){
@@ -118,12 +119,9 @@
             editItem.editable = false;
             removeGlow(editItem);
             editItem = this;
-            // console.log(scope.angle);
 
             scope.angle = editItem.rotation;
-            // console.log(scope.angle);
-
-            // console.log(editItem);
+            scope.scale = editItem.scaleX * 10;
 
           }
 
@@ -138,6 +136,7 @@
             this.editable = true;
             addGlow(this);
             scope.angle = editItem.rotation;
+            scope.scale = editItem.scaleX * 10;
 
           }
 
@@ -153,22 +152,20 @@
           bitmap.shadow = null;
         }
 
-        scope.adjustSliderValues = function(){
-          if(editItem){
-          console.log(scope.angle);
-          var rotangle = editItem.rotation;
-          scope.angle = 0;
-          console.log(scope.angle);
-          }
-        }
+  
         scope.onRotateChange = function(){
           if (editItem != null && editItem.editable){
             editItem.rotation = scope.angle;
-            console.log(scope.angle);
-
             scope.stage.update();
           }
       }
+      scope.onScaleChange = function(){
+        if (editItem != null && editItem.editable){
+            editItem.scaleX = editItem.scaleY = scope.scale/10;
+            scope.stage.update();
+        }
+
+    }
 
 
       }
