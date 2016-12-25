@@ -219,7 +219,10 @@
 
         scope.Save = function(){
           var image = convertCanvasToImage(scope.stage.canvas);
-          
+          Visual.saveMeme(image).then(function (memeData){
+            console.log(memeData);
+          });
+      
         }
 
         var convertCanvasToImage = function(canvas) {

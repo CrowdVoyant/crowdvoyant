@@ -23,7 +23,8 @@
 			getStory: getStory,
       getArticles: getArticles,
       getArticle: getArticle,
-      getImages: getImages
+      getImages: getImages,
+			saveMeme: saveMeme
 		};
 
 		return Visual;
@@ -82,6 +83,19 @@
         method: 'GET'
       };
       return HttpService.doRequest(settings);
+
+    }
+
+		function saveMeme(image) {
+
+			var settings = {
+				url: '/api/meme/',
+				method: 'POST',
+				data: {
+					image: image
+				}
+			};
+			return HttpService.doRequest(settings);
 
     }
 
