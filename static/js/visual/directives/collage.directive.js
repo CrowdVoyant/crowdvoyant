@@ -12,7 +12,7 @@
   function collage() {
     return {
       restrict: 'AEC',
-      template: '<div><canvas></canvas><div layout="row"><md-slider-container><span>Rotation</span><md-slider flex min="0" max="360" ng-model="angle" ng-change="onRotateChange();" aria-label="red" id="red-slider"></md-slider><md-input-container><input flex type="number" ng-model="angle" aria-label="red" aria-controls="red-slider"></md-input-container></md-slider-container><md-slider-container><span>Scale</span><md-slider flex min="0" max="100" ng-model="scale" ng-change="onScaleChange();" aria-label="red" id="red-slider"></md-slider><md-input-container><input flex type="number" ng-model="scale" aria-label="red" aria-controls="red-slider"></md-input-container></md-slider-container></div></div>',
+      template: '<div><canvas></canvas><div layout="row"><md-slider-container><span>Rotation</span><md-slider flex min="0" max="360" ng-model="angle" ng-change="onRotateChange();" aria-label="red" id="red-slider"></md-slider><md-input-container><input flex type="number" ng-model="angle" aria-label="red" aria-controls="red-slider"></md-input-container></md-slider-container><md-slider-container><span>Scale</span><md-slider flex min="0" max="100" ng-model="scale" ng-change="onScaleChange();" aria-label="red" id="red-slider"></md-slider><md-input-container><input flex type="number" ng-model="scale" aria-label="red" aria-controls="red-slider"></md-input-container></md-slider-container><md-input-container class="md-block"><label>Bottom Text</label><textarea ng-model="bottomCaption" ng-change="onbottomCaptionChange();" md-maxlength="150" rows="3" md-select-on-focus></textarea></md-input-container><md-input-container class="md-block"><label>Top Text</label><textarea ng-model="topCaption" ng-change="ontopCaptionChange();" md-maxlength="150" rows="3" md-select-on-focus></textarea></md-input-container></div></div>',
       replace : true,
       scope: {
         images: '='
@@ -27,6 +27,8 @@
         var gridBounds;
         var topText;
         var bottomText;
+        scope.bottomCaption = "Hello WOrld";
+        scope.topCaption = "Hello World";
         var editItem; //reference to the bitmap being manipulated
         scope.angle = 0;
         scope.scale = 1;
@@ -89,8 +91,6 @@
           topText.y = 50;
           topText.x = (stageBounds.width)/2 ;
 
-
-
           scope.stage.addChild(topText);
 
           scope.stage.update();
@@ -102,7 +102,7 @@
           bottomText.lineHeight = 22;
           bottomText.textBaseline = "top";
           bottomText.textAlign = "center";
-          var b = bottomText.getBounds()
+          var b = bottomText.getBounds();
           bottomText.y = stageBounds.height - b.height - 50;
           bottomText.x = (stageBounds.width)/2 ;
 
@@ -185,7 +185,21 @@
           bitmap.shadow = null;
         }
 
+        scope.onbottomCaptionChange = function(){
+          bottomText.text = scope.bottomCaption;
+          var b = bottomText.getBounds();
+          bottomText.y = stageBounds.height - b.height - 50;
 
+          scope.stage.update();
+
+        }
+        scope.ontopCaptionChange = function(){
+          topText.text = scope.topCaption;
+          var b = topText.getBounds();
+
+          scope.stage.update();
+
+        }
         scope.onRotateChange = function(){
           if (editItem != null && editItem.editable){
             editItem.rotation = scope.angle;
