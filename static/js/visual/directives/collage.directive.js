@@ -12,7 +12,7 @@
   function collage() {
     return {
       restrict: 'AEC',
-      template: "<canvas></canvas>",
+      template: '<div><canvas></canvas><md-slider flex min="0" max="360" ng-model="angle" ng-change="onRotateChange();" aria-label="Slider"></md-slider></div>',
       replace : true,
       scope: {
         images: '='
@@ -21,12 +21,12 @@
         //will hold all canvas references
         var stageBounds = { width: 800, height: 600, midX: null, midY: null }
         var stageUpdate = false; //tells stage when to update
-        element[0].width = stageBounds.width;
-        element[0].height = stageBounds.height;
+        element[0].children[0].width = stageBounds.width;
+        element[0].children[0].height = stageBounds.height;
         var gridImg, gridBitmap = null; //perspective plane
         var gridBounds;
         var editItem; //reference to the bitmap being manipulated
-
+        scope.angle = 10;
         initStage();
 
         function initStage(){
@@ -36,7 +36,7 @@
             scope.stage.removeAllChildren();
             scope.stage.update();
           } else {
-            scope.stage = new createjs.Stage(element[0]);
+            scope.stage = new createjs.Stage(element[0].children[0]);
           }
           stageBounds.midX = stageBounds.width/2;
           stageBounds.midY = stageBounds.height/2;
@@ -117,8 +117,14 @@
           if (editItem && editItem.id != this.id){ //we are switching to a new item
             editItem.editable = false;
             removeGlow(editItem);
-            editItem = this.id;
-            // adjustSliderValues();
+            editItem = this;
+            // console.log(scope.angle);
+
+            scope.angle = editItem.rotation;
+            // console.log(scope.angle);
+
+            // console.log(editItem);
+
           }
 
           if (this.editable){ //item is editable if it has been selected
@@ -131,7 +137,10 @@
             editItem = this;
             this.editable = true;
             addGlow(this);
+            scope.angle = editItem.rotation;
+
           }
+
           scope.stage.update();
 
         }
@@ -144,6 +153,22 @@
           bitmap.shadow = null;
         }
 
+        scope.adjustSliderValues = function(){
+          if(editItem){
+          console.log(scope.angle);
+          var rotangle = editItem.rotation;
+          scope.angle = 0;
+          console.log(scope.angle);
+          }
+        }
+        scope.onRotateChange = function(){
+          if (editItem != null && editItem.editable){
+            editItem.rotation = scope.angle;
+            console.log(scope.angle);
+
+            scope.stage.update();
+          }
+      }
 
 
       }
