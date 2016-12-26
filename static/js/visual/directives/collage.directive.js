@@ -8,9 +8,9 @@
   angular
   .module('crowdsource.visual.directives')
   .directive('collage', collage);
-  collage.$inject = ['Visual'];
+  collage.$inject = ['Visual', '$location'];
 
-  function collage(Visual) {
+  function collage(Visual, $location) {
     return {
       restrict: 'AEC',
       template: '<div><canvas></canvas><div layout="row"><md-slider-container><span>Rotation</span><md-slider flex min="0" max="360" ng-model="angle" ng-change="onRotateChange();" aria-label="red" id="red-slider"></md-slider><md-input-container><input flex type="number" ng-model="angle" aria-label="red" aria-controls="red-slider"></md-input-container></md-slider-container><md-slider-container><span>Scale</span><md-slider flex min="0" max="100" ng-model="scale" ng-change="onScaleChange();" aria-label="red" id="red-slider"></md-slider><md-input-container><input flex type="number" ng-model="scale" aria-label="red" aria-controls="red-slider"></md-input-container></md-slider-container><md-input-container class="md-block"><label>Bottom Text</label><textarea ng-model="bottomCaption" ng-change="onbottomCaptionChange();" md-maxlength="150" rows="3" md-select-on-focus></textarea></md-input-container><md-input-container class="md-block"><label>Top Text</label><textarea ng-model="topCaption" ng-change="ontopCaptionChange();" md-maxlength="150" rows="3" md-select-on-focus></textarea></md-input-container><md-input-container class="md-block"><label>Description</label><textarea ng-model="description" md-maxlength="150" rows="3" md-select-on-focus></textarea></md-input-container></div><md-button class="md-raised md-primary" ng-click="Save()">Save</md-button></div>',
@@ -220,9 +220,8 @@
 
 
         scope.Save = function(){
-          var image = convertCanvasToImage(scope.stage.canvas);
           var data = {};
-          data.image = image.src.replace("data:image/png;base64,", "");
+          data.image = scope.stage.canvas.toDataURL("image/jpeg", 0.5);
           data.image1 = scope.images[0].id;
           data.image2 = scope.images[1].id;
           data.bottomCaption = scope.bottomCaption;
@@ -231,15 +230,12 @@
           data.description = scope.description;
           data.user = "user";
           Visual.saveMeme(data).then(function (memeData){
-            console.log(memeData);
+            if(memeData[1]=201){
+              $location.path('/meme/'+memeData[0].id+'/');
+
+            }
           });
 
-        }
-
-        var convertCanvasToImage = function(canvas) {
-          var image = new Image();
-          image.src = canvas.toDataURL("image/png");
-          return image;
         }
 
 

@@ -24,6 +24,11 @@
       controller: 'ImageController',
       controllerAs: 'ctrl'
     })
+    .when('/meme/:param',{
+      templateUrl: '/static/templates/visual/meme.html',
+      controller: 'CollageController',
+      controllerAs: 'ctrl'
+    })
     .when('/forum-home', {
         controller: 'CategoryController',
         controllerAs: 'ctrl',
