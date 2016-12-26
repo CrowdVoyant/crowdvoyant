@@ -23,6 +23,7 @@ router.register(r'api/subscription',SubscriptionViewSet)
 router.register(r'api/story',StoryViewSet)
 router.register(r'api/article',ArticleViewSet)
 router.register(r'api/image',ImageViewSet)
+router.register(r'api/meme',MemeViewSet)
 
 urlpatterns =  static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 urlpatterns += patterns('',

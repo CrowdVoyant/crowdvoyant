@@ -1,6 +1,6 @@
 from rest_framework import viewsets
 from crowdsourcing.serializers.garner import *
-from crowdsourcing.models import Story, Article, Image, Subscription
+from crowdsourcing.models import Story, Article, Image, Subscription, Meme
 from rest_framework.decorators import detail_route
 from rest_framework.response import Response
 
@@ -33,3 +33,7 @@ class ArticleViewSet(viewsets.ModelViewSet):
 class ImageViewSet(viewsets.ModelViewSet):
     queryset = Image.objects.all()
     serializer_class = ImageSerializer
+
+class MemeViewSet(viewsets.ModelViewSet):
+    queryset = Meme.objects.all()
+    serializer_class = MemeSerializer

@@ -35,3 +35,6 @@ class Image(models.Model):
     url = models.CharField(max_length = 20)
     file = models.FileField(upload_to='')
     meta_data = models.CharField(max_length=100)
+
+class Meme(models.Model):
+    file = models.FileField(upload_to='')

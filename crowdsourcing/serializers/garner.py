@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from crowdsourcing.models import Story, Article, Image, Subscription
+from crowdsourcing.models import Story, Article, Image, Subscription, Meme
 
 class SubscriptionSerializer(serializers.ModelSerializer):
     class Meta:
@@ -30,3 +30,7 @@ class ArticleSerializer(serializers.ModelSerializer):
 class ImageSerializer(serializers.ModelSerializer):
     class Meta:
         model = Image
+
+class MemeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Meme
