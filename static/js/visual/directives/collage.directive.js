@@ -13,7 +13,7 @@
   function collage(Visual) {
     return {
       restrict: 'AEC',
-      template: '<div><canvas></canvas><div layout="row"><md-slider-container><span>Rotation</span><md-slider flex min="0" max="360" ng-model="angle" ng-change="onRotateChange();" aria-label="red" id="red-slider"></md-slider><md-input-container><input flex type="number" ng-model="angle" aria-label="red" aria-controls="red-slider"></md-input-container></md-slider-container><md-slider-container><span>Scale</span><md-slider flex min="0" max="100" ng-model="scale" ng-change="onScaleChange();" aria-label="red" id="red-slider"></md-slider><md-input-container><input flex type="number" ng-model="scale" aria-label="red" aria-controls="red-slider"></md-input-container></md-slider-container><md-input-container class="md-block"><label>Bottom Text</label><textarea ng-model="bottomCaption" ng-change="onbottomCaptionChange();" md-maxlength="150" rows="3" md-select-on-focus></textarea></md-input-container><md-input-container class="md-block"><label>Top Text</label><textarea ng-model="topCaption" ng-change="ontopCaptionChange();" md-maxlength="150" rows="3" md-select-on-focus></textarea></md-input-container></div><md-button class="md-raised md-primary" ng-click="Save()">Save</md-button></div>',
+      template: '<div><canvas></canvas><div layout="row"><md-slider-container><span>Rotation</span><md-slider flex min="0" max="360" ng-model="angle" ng-change="onRotateChange();" aria-label="red" id="red-slider"></md-slider><md-input-container><input flex type="number" ng-model="angle" aria-label="red" aria-controls="red-slider"></md-input-container></md-slider-container><md-slider-container><span>Scale</span><md-slider flex min="0" max="100" ng-model="scale" ng-change="onScaleChange();" aria-label="red" id="red-slider"></md-slider><md-input-container><input flex type="number" ng-model="scale" aria-label="red" aria-controls="red-slider"></md-input-container></md-slider-container><md-input-container class="md-block"><label>Bottom Text</label><textarea ng-model="bottomCaption" ng-change="onbottomCaptionChange();" md-maxlength="150" rows="3" md-select-on-focus></textarea></md-input-container><md-input-container class="md-block"><label>Top Text</label><textarea ng-model="topCaption" ng-change="ontopCaptionChange();" md-maxlength="150" rows="3" md-select-on-focus></textarea></md-input-container><md-input-container class="md-block"><label>Description</label><textarea ng-model="description" md-maxlength="150" rows="3" md-select-on-focus></textarea></md-input-container></div><md-button class="md-raised md-primary" ng-click="Save()">Save</md-button></div>',
       replace : true,
       scope: {
         images: '=',
@@ -34,6 +34,7 @@
         var editItem; //reference to the bitmap being manipulated
         scope.angle = 0;
         scope.scale = 1;
+        scope.description = "description";
         initStage();
 
         function initStage(){
@@ -227,7 +228,7 @@
           data.bottomCaption = scope.bottomCaption;
           data.topCaption = scope.topCaption;
           data.story = scope.story.id;
-          data.description = "description";
+          data.description = scope.description;
           data.user = "user";
           Visual.saveMeme(data).then(function (memeData){
             console.log(memeData);
