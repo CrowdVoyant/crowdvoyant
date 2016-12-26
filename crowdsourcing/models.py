@@ -38,3 +38,11 @@ class Image(models.Model):
 
 class Meme(models.Model):
     file = models.FileField(upload_to='')
+    story = models.ForeignKey(Story, null=True, on_delete=models.SET_NULL)
+    description = models.CharField(max_length=100)
+    image1 = models.ForeignKey(Image, null=True, on_delete=models.SET_NULL, related_name='meme_primary')
+    image2 = models.ForeignKey(Image, null=True, on_delete=models.SET_NULL, related_name='meme_secondary')
+    user = models.CharField(max_length=50)
+    bottomCaption = models.CharField(max_length=50)
+    topCaption = models.CharField(max_length=50)
+    date=models.DateTimeField(auto_now_add=True)
