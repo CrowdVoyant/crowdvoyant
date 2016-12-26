@@ -86,21 +86,19 @@
 
     }
 
-		function saveMeme(image) {
-			var blob = new Blob([image], {type: 'image/png'});
+		function saveMeme(data) {
+			var blob = new Blob([data.image], {type: 'image/png'});
 			var file = new File([blob], 'imageFileName.png');
 			console.log(file)
 			var fd = new FormData();
 	    fd.append('file', file);
-			// $http.post('/api/meme/', fd, {
-      //       transformRequest: angular.identity,
-      //       headers: {'Content-Type': undefined}
-      //   })
-      //   .success(function(){
-			// 		return "done";
-      //   })
-      //   .error(function(){
-      //   });
+			fd.append('story', data.story);
+			fd.append('description', data.description);
+			fd.append('image1', data.image1);
+			fd.append('image2', data.image2);
+			fd.append('user', data.user);
+			fd.append('bottomCaption', data.bottomCaption);
+			fd.append('topCaption', data.topCaption);
 			var settings = {
 				url: '/api/meme/',
 				method: 'POST',
