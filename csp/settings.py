@@ -70,6 +70,7 @@ INSTALLED_APPS = [
     'rest_framework',
     # 'oauth2_provider',
     'crowdsourcing',
+    'django_seo_js'
     # 'rest_framework_mongoengine',
 
 ]
@@ -79,8 +80,10 @@ MIDDLEWARE_CLASSES = [
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django_seo_js.middleware.EscapedFragmentMiddleware',  # If you're using #!
+    'django_seo_js.middleware.UserAgentMiddleware'
 ]
-
+SEO_JS_PRERENDER_TOKEN = "123456789abcdefghijkl"
 ROOT_URLCONF = 'csp.urls'
 AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',

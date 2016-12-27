@@ -17,7 +17,8 @@ angular
     'crowdsource.config',
     'crowdsource.routes',
     'crowdsource.visual',
-    'crowdsource.services'
+    'crowdsource.services',
+    'updateMeta'
   ]);
 
 angular

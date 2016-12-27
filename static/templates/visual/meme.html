@@ -1,0 +1,53 @@
+<div layout = "row" flex="">
+  <div flex>
+    <md-card>
+        <md-list>
+          <md-list-item class="md-2-line md-offset" >
+            <h3>{{ctrl.story.headline}}</h3>
+          </md-list-item>
+
+          <md-divider></md-divider>
+
+          <md-list-item class="md-2-line md-offset" >
+            <h4>{{ctrl.story.last_update}}</h4>
+          </md-list-item>
+        </md-list>
+
+    </md-card>
+    <md-card style="width: 600px;" >
+      <img ng-src="{{ctrl.meme.file}}" img-respnsive class="md-card-image" alt="Washed Out" width="100%" >
+      <md-card-actions layout="row" layout-align="center center">
+        <md-button class="md-icon-button">
+          <md-icon md-font-set="material-icons">info</md-icon>
+        </md-button>
+
+
+      </md-card-actions>
+    </md-card>
+    <div layout = "row" layout-wrap>
+      <div ng-repeat = "article in ctrl.story.articles">
+        <div ng-repeat = "image in article.images">
+
+          <md-card style="width: 300px;" >
+            <img ng-src="{{image.file}}" img-respnsive class="md-card-image" alt="Washed Out" width="100%" >
+            <md-card-actions layout="row" layout-align="center center">
+              <md-button class="md-icon-button">
+                <md-icon md-font-set="material-icons">info</md-icon>
+              </md-button>
+
+
+            </md-card-actions>
+          </md-card>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+  <update-meta http-equiv="Content-Language" content="es"></update-meta>
+  <update-meta name="twitter:card" content="summary_large_image"></update-meta>
+  <update-meta name="twitter:site" content="@vishNatic"></update-meta>
+  <update-meta name="twitter:creator" content="@vishNaticUpdated"></update-meta>
+  <update-meta name="twitter:title" content="{{ctrl.story.headline}}"></update-meta>
+  <update-meta name="twitter:description" content="{{ctrl.meme.description}}"></update-meta>
+  <update-meta name="twitter:image" content="http://127.0.0.1:8000/media/Aisywc_Jaipur.jpg"></update-meta>

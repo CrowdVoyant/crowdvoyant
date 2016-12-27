@@ -1,5 +1,7 @@
 {% load staticfiles %}
 {% load compress %}
+{% load django_seo_js %}
+{% seo_js_head %}
 <html lang="en" ng-app="crowdsource">
 <head>
     <base href="/">
@@ -9,6 +11,12 @@
     <meta name="author" content="neilg, dmorina">
 
     <title>daemo</title>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:site" content="@CrowdVoyant"/>
+    <meta name="twitter:creator" content="@vishNatic"/>
+    <meta name="twitter:title" content="UnbaisedCrowd"/>
+    <meta name="twitter:description" content="Bursting filter bubble by exposing Visual Framing"/>
+    <meta name="twitter:image" content="/media/crowdvoyant.png"/>
     <!-- Custom CSS -->
     <link href="{% static 'bower_components/angular-material/angular-material.min.css' %}" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,700,500' rel='stylesheet' type='text/css'>
@@ -66,6 +74,9 @@
 <script type="text/javascript" src="{% static 'bower_components/angular-ui-sortable/sortable.min.js'%}"></script>
 <script type="text/javascript" src="{% static 'bower_components/ng-file-upload/ng-file-upload.min.js'%}"></script>
 <script type="text/javascript" src="{% static 'bower_components/ng-file-upload/ng-file-upload-shim.min.js'%}"></script>
+<script type="text/javascript" src="{% static 'bower_components/EaselJS/lib/easeljs-NEXT.min.js'%}"></script>
+<script type="text/javascript" src="{% static 'bower_components/EaselJS/lib/webgl-NEXT.min.js'%}"></script>
+<script type="text/javascript" src="{% static 'bower_components/angular-update-meta/dist/update-meta.min.js'%}"></script>
 
 <script type="text/javascript" src="{% static 'js/crowdsource.js' %}"></script>
 <!-- <script type="text/javascript" src="{% static 'js/crowdsource.interceptor.js' %}"></script> -->
@@ -95,8 +106,12 @@
 
 <script type="text/javascript" src="{% static 'js/visual/visual.module.js' %}"></script>
 <script type="text/javascript" src="{% static 'js/visual/controllers/image.controller.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/visual/controllers/collage.controller.js' %}"></script>
+
 <script type="text/javascript" src="{% static 'js/visual/controllers/story.controller.js' %}"></script>
 <script type="text/javascript" src="{% static 'js/visual/services/visual.service.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/visual/directives/collage.directive.js' %}"></script>
+
 
 <!--  /Forum-->
 {% endcompress %}

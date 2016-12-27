@@ -58,7 +58,7 @@
       self.selection_done=false;
     }
 
-    self.showAdvance = function(ev, images) {
+    self.showAdvance = function(ev, images, story) {
        $mdDialog.show({
          controller: MemeController,
          controllerAs: 'meme',
@@ -67,7 +67,8 @@
          targetEvent: ev,
          clickOutsideToClose:true,
          locals : {
-                    images : images
+                    images : images,
+                    story : story
                 },
          fullscreen: $scope.customFullscreen
          // Only for -xs, -sm breakpoints.
@@ -82,10 +83,11 @@
 
   }
 
-  function MemeController($location, $scope, Visual, $mdDialog, images){
+  function MemeController($location, $scope, Visual, $mdDialog, images, story){
 		var self = this;
     self.images = images;
-    console.log(self.images)
+    self.story = story;
+    console.log(self.images);
 		self.cancel = function() {
 			$mdDialog.cancel();
 		};
