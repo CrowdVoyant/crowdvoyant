@@ -1,15 +1,17 @@
 {% load staticfiles %}
 {% load compress %}
-{% load django_seo_js %}
-{% seo_js_head %}
+
 <html lang="en" ng-app="crowdsource">
+{% load django_seo_js %}
+
 <head>
+  {% seo_js_head %}
     <base href="/">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="neilg, dmorina">
-
+    <meta name="fragment" content="!">
     <title>daemo</title>
     <meta name="twitter:card" content="summary_large_image"/>
     <meta name="twitter:site" content="@CrowdVoyant"/>
