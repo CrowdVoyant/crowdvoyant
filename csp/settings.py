@@ -75,15 +75,16 @@ INSTALLED_APPS = [
 
 ]
 MIDDLEWARE_CLASSES = [
+    'django_seo_js.middleware.EscapedFragmentMiddleware',  # If you're using #!
+    'django_seo_js.middleware.UserAgentMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     # 'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'django_seo_js.middleware.EscapedFragmentMiddleware',  # If you're using #!
-    'django_seo_js.middleware.UserAgentMiddleware'
+
 ]
-SEO_JS_PRERENDER_TOKEN = "123456789abcdefghijkl"
+
 ROOT_URLCONF = 'csp.urls'
 AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
@@ -121,6 +122,14 @@ DATABASES = {
 
     }
 }
+
+SEO_JS_ENABLED = True
+# -----Uncomment below for local prerender server
+# SEO_JS_BACKEND = "django_seo_js.backends.PrerenderHosted"
+# SEO_JS_PRERENDER_URL = "http://localhost:3000/"  # Note trailing slash.
+# SEO_JS_PRERENDER_RECACHE_URL = "http://localhost:3000/recache"
+#
+# SEO_JS_PRERENDER_TOKEN = "123456789abcdefghijkl"
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
