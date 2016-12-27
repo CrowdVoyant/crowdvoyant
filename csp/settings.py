@@ -129,7 +129,7 @@ SEO_JS_ENABLED = True
 # SEO_JS_PRERENDER_URL = "http://localhost:3000/"  # Note trailing slash.
 # SEO_JS_PRERENDER_RECACHE_URL = "http://localhost:3000/recache"
 #
-# SEO_JS_PRERENDER_TOKEN = "123456789abcdefghijkl"
+SEO_JS_PRERENDER_TOKEN = "123456789abcdefghijkl"
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
