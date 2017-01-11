@@ -70,7 +70,7 @@
                     images : images,
                     story : story
                 },
-         fullscreen: $scope.customFullscreen
+         fullscreen: true
          // Only for -xs, -sm breakpoints.
        })
        .then(function() {
