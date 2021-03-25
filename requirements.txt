@@ -46,7 +46,7 @@ pymongo==3.3.0
 python-dateutil==2.4.0
 python-http-client==2.1.1
 pytz==2015.4
-PyYAML==3.11
+PyYAML==5.4
 redis==2.10.5
 requests==2.3.0
 rsa==3.1.4
@@ -109,7 +109,7 @@ pymongo==3.3.0
 python-dateutil==2.4.0
 python-http-client==2.1.1
 pytz==2015.4
-PyYAML==3.11
+PyYAML==5.4
 redis==2.10.5
 requests==2.2.1
 rsa==3.1.4
