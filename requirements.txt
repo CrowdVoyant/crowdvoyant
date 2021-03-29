@@ -41,7 +41,7 @@ oauthlib==0.7.2
 Pillow==2.5.1
 pyasn1==0.1.7
 pyasn1-modules==0.0.5
-Pygments==2.0.2
+Pygments==2.7.4
 pymongo==3.3.0
 python-dateutil==2.4.0
 python-http-client==2.1.1
@@ -104,7 +104,7 @@ oauthlib==0.7.2
 Pillow==2.5.1
 pyasn1==0.1.7
 pyasn1-modules==0.0.5
-Pygments==2.0.2
+Pygments==2.7.4
 pymongo==3.3.0
 python-dateutil==2.4.0
 python-http-client==2.1.1
