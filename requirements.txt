@@ -59,7 +59,7 @@ tldextract==1.5.1
 unicode-slugify==0.1.3
 Unidecode==0.4.18
 uritemplate==0.6
-urllib3==1.10.4
+urllib3==1.26.5
 amqp==1.4.9
 anyjson==0.3.3
 beautifulsoup4==4.3.2
@@ -122,4 +122,4 @@ tldextract==1.5.1
 unicode-slugify==0.1.3
 Unidecode==0.4.18
 uritemplate==0.6
-urllib3==1.10.4
+urllib3==1.26.5
