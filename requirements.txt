@@ -35,7 +35,7 @@ lxml==3.3.5
 mistune==0.3.1
 mongoengine==0.10.6
 newspaper==0.0.9.8
-nltk==2.0.5
+nltk==3.6.3
 oauth2client==1.4.11
 oauthlib==0.7.2
 Pillow==2.5.1
@@ -98,7 +98,7 @@ lxml==3.3.5
 mistune==0.3.1
 mongoengine==0.10.6
 newspaper==0.0.9.8
-nltk==2.0.5
+nltk==3.6.3
 oauth2client==1.4.11
 oauthlib==0.7.2
 Pillow==2.5.1
