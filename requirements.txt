@@ -31,7 +31,7 @@ httpie==0.9.2
 httplib2==0.9.1
 jieba==0.35
 kombu==3.0.35
-lxml==3.3.5
+lxml==4.6.5
 mistune==0.3.1
 mongoengine==0.10.6
 newspaper==0.0.9.8
@@ -94,7 +94,7 @@ httpie==0.9.2
 httplib2==0.9.1
 jieba==0.35
 kombu==3.0.35
-lxml==3.3.5
+lxml==4.6.5
 mistune==0.3.1
 mongoengine==0.10.6
 newspaper==0.0.9.8
